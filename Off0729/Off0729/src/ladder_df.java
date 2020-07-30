@@ -29,11 +29,9 @@ public class ladder_df {
 
 			}
 
-			// 올라갈거야
 			int curIdx = goalIdx;
 			for (int i = SIZE - 1; i >= 0; i--) {
 
-				// 왼쪽 낭떠러지가 아니다
 				if (lanes[curIdx] - 1 >= 0 && map[i][lanes[curIdx] - 1] == 1)
 					curIdx--;
 				else if (lanes[curIdx] + 1 < SIZE && map[i][lanes[curIdx] + 1] == 1)
