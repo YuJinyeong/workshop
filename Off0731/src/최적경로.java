@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class 최적경로 {
@@ -12,11 +13,12 @@ public class 최적경로 {
 
 	public static void perm(int cnt) {
 		if (cnt == N) {
+			System.out.println(Arrays.toString(Route));
 			calc(Route);
 			return;
 		}
 
-		for (int i = 1; i <= N; i++) {
+		for (int i = 0; i < N; i++) {
 			// 중복 확인
 			if (check[i])
 				continue;
