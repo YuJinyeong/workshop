@@ -2,6 +2,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
+
+// 내 위에가 0이면서 내가 0이 아니면 행렬의 시작 행
+// 내 왼쪽이 0이면서 내가 0이 아니면 행렬의 시작 열
+// 각 맵에 자신의 행/렬의 값을 적어두자
+// 그러면 나는 0이 아니면서 내 오른쪽도 0이고 아래도 0이면 행렬의 끝점이고
+// 그 자리의 행.렬 값은 행렬의 크기가 됨.
+
 public class 행렬찾기 {
 
 	static class Rect implements Comparable<Rect> {
@@ -27,13 +34,6 @@ public class 행렬찾기 {
 		}
 
 	}
-
-	// 내 위에가 0이면서 내가 0이 아니면 행렬의 시작 행
-	// 내 왼쪽이 0이면서 내가 0이 아니면 행렬의 시작 열
-	// 각 맵에 자신의 행/렬의 값을 적어두자
-	// 그러면 나는 0이 아니면서 내 오른쪽도 0이고 아래도 0이면 행렬의 끝점이고
-	// 그 자리의 행.렬 값은 행렬의 크기가 됨.
-
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
