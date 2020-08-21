@@ -1,5 +1,4 @@
 package company;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,14 +41,17 @@ public class EmpTest {
 
 		// 이름으로 직원 검색 - 해당하는 사번의 직원이 없을 때
 		list = em.search("eee");
-		if (list != null)
+		if (list != null) {
 			printList(list);
+			printList(em.search());
+		}
 		else
 			System.out.println("해당하는 사번의 직원을 찾을 수 없습니다.");
 
 		// 사번으로 부서 수정
 		if (em.update(12, "D") == true) {
 			System.out.println("해당하는 사번의 직원을 찾아 부서를 수정했습니다.");
+			printList(em.search());
 		} else {
 			System.out.println("수정에 실패했습니다.");
 		}
@@ -57,6 +59,7 @@ public class EmpTest {
 		// 사번으로 부서 수정 - 실패
 		if (em.update(11, "D") == true) {
 			System.out.println("해당하는 사번의 직원을 찾아 부서를 수정했습니다.");
+			printList(em.search());
 		} else {
 			System.out.println("수정에 실패했습니다.");
 		}
@@ -64,6 +67,7 @@ public class EmpTest {
 		// 사번으로 직원 데이터 삭제
 		if (em.delete(89) == true) {
 			System.out.println("해당하는 사번의 직원을 찾아 데이터를 삭제했습니다.");
+			printList(em.search());
 		} else {
 			System.out.println("삭제에 실패했습니다.");
 		}
@@ -71,6 +75,7 @@ public class EmpTest {
 		// 사번으로 직원 데이터 삭제 - 실패
 		if (em.delete(00) == true) {
 			System.out.println("해당하는 사번의 직원을 찾아 데이터를 삭제했습니다.");
+			printList(em.search());
 		} else {
 			System.out.println("삭제에 실패했습니다.");
 		}
@@ -84,3 +89,4 @@ public class EmpTest {
 		}
 	}
 }
+

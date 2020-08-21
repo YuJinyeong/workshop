@@ -25,8 +25,7 @@ public class EmpMgr {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/company_db?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&useSSL=false",
-					"ssafy", "ssafy");
+					"jdbc:mysql://localhost:3306/compdb?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&useSSL=false", "ssafy", "1007");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
