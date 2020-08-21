@@ -26,7 +26,7 @@ public class EmpMgr {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/company_db?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8&useSSL=false",
-					"ssafy", "1007");
+					"ssafy", "ssafy");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -65,7 +65,7 @@ public class EmpMgr {
 	// 파라메터로 전달된 직원 정보를  DB에 저장
 	void add(Employee b) {
 		Connection conn = getConnection();
-		String sql = "INSERT INTO employee VALUES(?,?,?,?,?,?)";
+		String sql = "INSERT INTO employee VALUES(?,?,?,?)";
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 
@@ -171,7 +171,7 @@ public class EmpMgr {
 	
 	boolean update(int empNo, String dept) {
 		Connection conn = getConnection();
-		String sql = "UPDATE book SET dept=? where empNo=?";
+		String sql = "UPDATE employee SET dept=? where empNo=?";
 		boolean success = false;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
