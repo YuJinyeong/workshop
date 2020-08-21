@@ -195,19 +195,24 @@ public class EmpMgr {
 	}
 	
 	// 파라메터의 사번과 같은 직원을 찾아 삭제
-	void delete(int empNo) {
+	boolean delete(int empNo) {
 		Connection conn = getConnection();
 		String sql = "DELETE FROM employee WHERE empNo=?";
+		boolean success = false;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, empNo);
 
-			pstmt.executeUpdate();
+			if(pstmt.executeUpdate()!=0) {
+				success = true;
+			}
+			
 			close(conn);
 			close(pstmt);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return success;
 	}
 }

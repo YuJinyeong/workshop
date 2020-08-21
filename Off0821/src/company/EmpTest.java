@@ -61,6 +61,20 @@ public class EmpTest {
 			System.out.println("수정에 실패했습니다.");
 		}
 
+		// 사번으로 직원 데이터 삭제
+		if (em.delete(89) == true) {
+			System.out.println("해당하는 사번의 직원을 찾아 데이터를 삭제했습니다.");
+		} else {
+			System.out.println("삭제에 실패했습니다.");
+		}
+
+		// 사번으로 직원 데이터 삭제 - 실패
+		if (em.delete(00) == true) {
+			System.out.println("해당하는 사번의 직원을 찾아 데이터를 삭제했습니다.");
+		} else {
+			System.out.println("삭제에 실패했습니다.");
+		}
+
 	}
 
 	private static void printList(List<Employee> search) {
