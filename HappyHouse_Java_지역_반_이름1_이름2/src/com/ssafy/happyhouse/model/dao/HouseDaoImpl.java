@@ -84,7 +84,10 @@ public class HouseDaoImpl implements HouseDao{
 		while(iter.hasNext()) {
 			HouseDeal nxt = iter.next();
 			if(no == nxt.getNo()) {
-				houseInfo.get(nxt.getDong()+nxt.getAptName());
+				nxt.setBuildYear(houseInfo.get(nxt.getDong()+nxt.getAptName()).getBuildYear());
+				nxt.setCode(houseInfo.get(nxt.getDong()+nxt.getAptName()).getCode());
+				nxt.setJibun(houseInfo.get(nxt.getDong()+nxt.getAptName()).getJibun());
+				nxt.setImg(houseInfo.get(nxt.getDong()+nxt.getAptName()).getImg());
 				return nxt;
 			}
 		}
