@@ -33,7 +33,6 @@ public class HouseServiceImpl implements HouseService{
 		
 		// complete code #03
 		// null 을 return 하면 안됩니다. Dao Layer 의 적절한 method를 호출하여 Business Logic 을 완성하세요.
-		
 		return dao.search(no);
 	}
 }
