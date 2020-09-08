@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>SSAFY CAFE</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+	<!-- 상단 Header Start  -->
+	<header>
+		<nav>
+			<a class="header_nav_home" href="#">SSAFY Cafe</a>
+			<a class="" href="#">공지사항</a>
+			
+			<div class="header_nav_search"></div>
+			
+			<div class="header_nav_menu">
+				<div class="header_nav_menuitem">
+					<a class="nav_link" href="#">로그인</a>
+				</div>
+				<div class="header_nav_menuitem">
+					<a class="nav_link" href="#">회원가입</a>
+				</div>
+				<div class="header_nav_menuitem">
+					<a class="nav_link" href="#">로그아웃</a>
+				</div>
+				<div class="header_nav_menuitem">
+					<a class="nav_link" href="#">마이페이지</a>
+				</div>
+				<div class="header_nav_menuitem">
+					<a class="nav_link" href="#">관리자</a>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- 상단 Header End  -->
+	
+	<!-- 중앙 Contents Start  -->
+	<div class="content">
+	
+		<!-- 왼쪽 Content Start  -->
+		<div class="content_left">
+			<div class="profile">
+				<img id="profile_img" src="img/profile.png" alt="">
+				<img id="profile_img" src="img/william.png" alt="">
+			</div>
+			<div class="store_title">
+				<div class="store_display">전국매장펼치기</div>
+				<div class="store_display" style="display: none;">전국매장접기</div>
+				<ul class="store_item">
+					<li>
+					<a class="store_area">서울</a>
+					<div class="store_item_sub">
+						<ul>
+							<li>역삼점</li>
+							<li>선릉점</li>
+						</ul>
+					</div>
+					</li>
+					<li>
+					<a class="store_area">대전</a>
+					<div class="store_item_sub">
+						<ul>
+							<li>학하점</li>
+							<li>봉명점</li>
+						</ul>
+					</div>
+					</li>
+					<li>
+					<a class="store_area">구미</a>
+					<div class="store_item_sub">
+						<ul>
+							<li>인동점</li>
+							<li>공단점</li>
+						</ul>
+					</div>
+					</li>
+					<li>
+					<a class="store_area">광주</a>
+					<div class="store_item_sub">
+						<ul>
+							<li>하남산단점</li>
+							<li>광주역점</li>
+						</ul>
+					</div>
+					</li>
+				</ul>
+			</div>
+			<div class="vote">
+				<div class="vote_title">[ 당신의 선택 ]</div>
+				<div class="vote_question">
+				최애 메뉴를 골라 주세요!!!
+				</div>
+				<div class="vote_answer">
+					<ul>
+						<li>
+							<input type="radio" name="vote_answer" id=""/>
+							<img src="img/coffee/ice/ice_cafelatte.jpg" alt=""/> 카페라떼
+						</li>
+						<li>
+							<input type="radio" name="vote_answer" id=""/>
+							<img src="img/coffee/ice/ice_cafemocha.jpg" alt=""/> 카페모카
+						</li>
+						<li>
+							<input type="radio" name="vote_answer" id=""/>
+							<img src="img/coffee/ice/ice_caramelmacchiato.jpg" alt=""/> 카라멜마끼야또
+						</li>
+						<li>
+							<input type="radio" name="vote_answer" id=""/>
+							<img src="img/coffee/ice/ice_vanillalatte.jpg" alt=""/> 바닐라라떼
+						</li>
+					</ul>
+				</div>
+				<div class="vote_button">
+					<button class="button btn_primary">투표하기</button>
+					<button class="button">결과보기</button>
+				</div>
+				<div class="vote_date">
+				투표기간 : 20.09.01 ~ 20.09.30
+				</div>
+			</div>
+		</div>
+		<!-- 왼쪽 Content End  -->
+		
+		<!-- 중앙 Content Start  -->
+		<div class="content_body">
+		
+			<!-- 인기메뉴 Section Start  -->
+			<section class="menu">
+				<h3 class="menu_title">[ 인기메뉴 ]</h3>
+				<ul>
+					<li>
+						<div class="menu_item">
+							<div class="menu_item_img">
+								<img src="img/coffee/ice/ice_americano.jpg" alt=""/>
+							</div>
+							<div class="menu_item_info">(i) 아메리카노 (4500원)</div>
+						</div>
+					</li>
+					<li>
+						<div class="menu_item">
+							<div class="menu_item_img">
+								<img src="img/coffee/ice/ice_cafemocha.jpg" alt=""/>
+							</div>
+							<div class="menu_item_info">(i) 카페모카 (5500원)</div>
+						</div>
+					</li>
+					<li>
+						<div class="menu_item">
+							<div class="menu_item_img">
+								<img src="img/coffee/ice/ice_whitechocolatemocha.jpg" alt=""/>
+							</div>
+							<div class="menu_item_info">(i) 화이트초코모카 (6000원)</div>
+						</div>
+					</li>
+					<li>
+						<div class="menu_item">
+							<div class="menu_item_img">
+								<img src="img/coffee/ice/ice_vanillalatte.jpg" alt=""/>
+							</div>
+							<div class="menu_item_info">(i) 바닐라라떼 (5500원)</div>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<!-- 인기메뉴 Section End  -->
+			
+			<!-- 신메뉴 Section Start  -->
+			<section class="menu">
+				<h3 class="menu_title">[ 신메뉴 ]</h3>
+				<ul>
+					<li>
+						<div class="menu_item">
+							<div class="menu_item_img">
+								<img src="img/coffee/hot/cafelatte.jpg" alt=""/>
+							</div>
+							<div class="menu_item_info">카페라떼 (4500원)</div>
+						</div>
+					</li>
+					<li>
+						<div class="menu_item">
+							<div class="menu_item_img">
+								<img src="img/coffee/hot/capuccino.jpg" alt=""/>
+							</div>
+							<div class="menu_item_info">카푸치노 (5000원)</div>
+						</div>
+					</li>
+					<li>
+						<div class="menu_item">
+							<div class="menu_item_img">
+								<img src="img/coffee/hot/esspresso.jpg" alt=""/>
+							</div>
+							<div class="menu_item_info">에스프레소 (4500원)</div>
+						</div>
+					</li>
+					<li>
+						<div class="menu_item">
+							<div class="menu_item_img">
+								<img src="img/coffee/hot/cafemocha.jpg" alt=""/>
+							</div>
+							<div class="menu_item_info">카페모카 (6000원)</div>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<!-- 신메뉴 Section End  -->
+			
+			<section class="article">
+				<!-- 인기글 Article Start  -->
+				<article class="article_popular">
+					<h3>[ 인기글 ]</h3>
+					<table class="table table_striped">
+						<thead>
+							<tr>
+								<th class="title">제목</th>
+								<th>작성자</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>깔끔한 아아가 제일 맛나요!!</td>
+								<td>이쎄림</td>
+								<td>1756</td>
+							</tr>
+							<tr>
+								<td>분위기 좋은 카페 추천~</td>
+								<td>홍정밍</td>
+								<td>998</td>
+							</tr>
+							<tr>
+								<td>공부하기 좋은 스터디카페 ^^</td>
+								<td>김나켠</td>
+								<td>856</td>
+							</tr>
+						</tbody>
+					</table>
+				</article>
+				<!-- 인기글 Article End  -->
+			
+				<!-- 최신글 Article Start  -->
+				<article class="article_new">
+					<h3>[ 최신글 ]</h3>
+					<table class="table table_bordered table_hover">
+						<thead>
+							<tr>
+								<th class="title">제목</th>
+								<th>작성자</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>선택장애있어요 메뉴추천해주세요 ^^~</td>
+								<td>이주녕</td>
+								<td>12</td>
+							</tr>
+							<tr>
+								<td>오늘부터 열공</td>
+								<td>조밍기</td>
+								<td>998</td>
+							</tr>
+							<tr>
+								<td>와플도 팔았으면 좋겠어요.</td>
+								<td>류해면</td>
+								<td>856</td>
+							</tr>
+						</tbody>
+					</table>
+				</article>
+				<!-- 최신글 Article End  -->			
+			</section>
+			
+		</div>
+		<!-- 중앙 Content End  -->
+		
+	</div>
+	<!-- 중앙 Contents End  -->
+	
+	<!-- 하단 Footer Start  -->
+	<footer>
+		<ul>
+			<li><a class="" href="#">카페소개</a></li>
+			<li><a class="" href="#">개인정보처리방침</a></li>
+			<li><a class="" href="#">이용약관</a></li>
+			<li><a class="" href="#">오시는길</a></li>
+			<li>&copy; SSAFY Corp.</li>
+		</ul>
+	</footer>
+	<!-- 하단 Footer End  -->
+</body>
+</html>
