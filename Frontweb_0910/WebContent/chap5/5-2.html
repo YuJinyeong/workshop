@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<span id="content1">content1</span>
+<div>content2</div>
+<span name="content3">content3</span>
+<div class="content4">content4</div>
+
+<script type="text/javascript">
+// 1. id속성으로 찾기.
+document.getElementById("content1");
+// 2. tagName으로 찾기.
+document.getElementsByTagName("div");
+// 3. name 속성으로 찾기.
+document.getElementsByName("content3");
+// 4. className으로 찾기.
+document.getElementsByClassName("content4");
+</script>
+</body>
+</html>

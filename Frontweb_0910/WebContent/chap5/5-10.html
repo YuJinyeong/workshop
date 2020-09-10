@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<span id="span1" style="background:black;color:white;">span입니다.</span>
+	
+	<script type="text/javascript">
+	var span1 = document.getElementById("span1");
+	
+	// mouseenter 이벤트 핸들러 등록
+	span1.addEventListener("mouseenter", mouseIn, false);
+	// mouseleave 이벤트 핸들러 등록
+	span1.addEventListener("mouseleave", mouseOut, false);
+	
+	// mouseenter 핸들러 함수
+	function mouseIn() {
+		span1.style.background = "magenta";
+	}
+	// mouseleave 핸들러 함수
+	function mouseOut() {
+		span1.style.background = "orange";
+	}
+	</script>
+</body>
+</html>

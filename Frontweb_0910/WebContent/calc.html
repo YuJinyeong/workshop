@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+input{
+	width: 210px;
+}
+button {
+	width: 50px;
+}
+</style>
+<script type="text/javascript">
+function get(char) {
+    var display = document.getElementById('input');
+    display.value = display.value + char;
+}
+var count = 0;
+function calc(){
+	var display = document.getElementById('input');
+	var result = eval(display.value);
+	document.getElementById('results').innerHTML += (++count) +". "+ display.value + "=" + result +"<br/>";
+	document.getElementById('input').value = result;
+}
+function reset(){
+	document.getElementById('input').value = "";
+}
+</script>
+</head>
+<body>
+	<div>
+		<p><input id="input" type="text" placeholder="0.0" /></p>
+	</div>
+	<div>
+		<div>
+			<button id="btn" type="button" onclick="get(7)">7</button>
+			<button id="btn" type="button" onclick="get(8)">8</button>
+			<button id="btn" type="button" onclick="get(9)">9</button>
+			<button id="btn" type="button" onclick="get('+')">+</button>
+		</div>
+		<div>
+			<button id="btn" type="button" onclick="get(4)">4</button>
+			<button id="btn" type="button" onclick="get(5)">5</button>
+			<button id="btn" type="button" onclick="get(6)">6</button>
+			<button id="btn" type="button" onclick="get('-')">-</button>
+		</div>
+		<div>
+			<button id="btn" type="button" onclick="get(1)">1</button>
+			<button id="btn" type="button" onclick="get(2)">2</button>
+			<button id="btn" type="button" onclick="get(3)">3</button>
+			<button id="btn" type="button" onclick="get('*')">*</button>
+		</div>
+		<div>
+			<button id="btn" type="button" onclick="get(0)">0</button>
+			<button id="btn" type="button" onclick="reset()">CE</button>
+			<button id="btn" type="button" onclick="calc()">=</button>
+			<button id="btn" type="button" onclick="get('/')">/</button>
+		</div>
+	</div>
+	<div>
+		<h3> 결 과 이 력</h3>
+		<p id='results'></p>
+	</div>
+</body>
+</html>
