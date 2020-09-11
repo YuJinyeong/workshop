@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>LOTTO</title>
+<style type="text/css">
+	div{
+		background: skyblue;
+ 		width : 500px;
+ 		height : 70px;
+ 		padding : 2em;
+ 		text-align: center;
+	}
+	
+	.number{
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		border-radius : 20px;
+		color : black;
+		background: yellow;
+		margin-right: 1em;
+		text-align: center;
+		line-height:40px;
+		font-size: 120%;
+		font-weight: bold;
+	}
+	
+</style>
+<script type="text/javascript">
+
+	var numbers;
+	var count = 0;
+	var intervalId;
+	
+	function startGame(){
+		numbers = selectNumber();
+		intervalId = setInterval(displayNumber,1000);
+	}
+	
+	function selectNumber(){
+		var numbers = new Array(6);
+		var flags = new Array(46);
+		for(var i=0; i<flags.length; ++i){
+			flags[i] = false;
+		}
+		
+		for(var i=0; i<numbers.length; ++i){
+			var number;
+			do{
+				number = Math.floor(Math.random() * 45) + 1;
+			}while(flags[number]==true);
+			
+			numbers[i] = number;
+			flags[number] = true;
+		}
+
+		numbers.sort(function(left,right){
+			return left-right;
+		});		
+		return numbers;
+	}
+	
+	function displayNumber(){		
+		var div = document.getElementById("result");		
+		div.innerHTML += "<span class='number'>"
+			+numbers[count++]+"</span>";			
+		if(count == 6){
+			clearInterval(intervalId);
+		}
+	}
+
+	window.onload = startGame;
+</script>
+
+</head>
+<body>
+	<h3>대박을 기원합니다~~</h3>
+	<div id="result">     </div>
+	
+</body>
+</html>

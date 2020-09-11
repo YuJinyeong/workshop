@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#saveBtn').on('click', function(){
+            let val = $('#name').val()
+            localStorage.setItem('name', val)
+        })
+        $('#checkVal').on('click', function(){
+            alert( localStorage.getItem('name'))
+        })
+        $('#clearVal').on('click', function(){
+//             localStorage.clear()
+            localStorage.removeItem('name')
+        })
+    })
+</script>
+</head>
+<body>
+    <input type="text" id="name">
+    <input type="button" id="saveBtn" value="저장하기">
+    <input type="button" id="checkVal" value="저장된값 확인하기.">
+    <input type="button" id="clearVal" value="삭제">
+</body>
+</html>

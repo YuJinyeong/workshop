@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+*{
+	padding-left: 5px;
+	padding-top: 3px;
+	margin-top: 5px;
+}
+</style>
+<script>
+	function discount(){
+		var bef = document.getElementById("before");
+		var aft = document.getElementById("after");
+		document.getElementById("times").value = "5000";
+		bef.style.textDecoration = "line-through";
+		aft.style.visibility = "visible";
+		calc();
+	}
+	function selectTime(){
+		var bef = document.getElementById("before");
+		var aft = document.getElementById("after");
+		document.getElementById("times").value = "9000";
+		bef.style.textDecoration = "none";
+		aft.style.visibility = "hidden";
+		calc();
+	}
+	function calc(){
+		var per = document.getElementById("times").value;
+		var cnt = document.getElementById("count").value;
+		var res = eval(per + "*" + cnt);
+		document.getElementById("total").value = res;
+	}
+	function showOption(){
+		var opt = document.getElementById("option");
+		if(document.getElementById("checkbox").checked==true){
+			opt.style.visibility = "visible";
+		}else{
+			opt.style.visibility = "hidden";
+		}
+	}
+</script>
+</head>
+<body style="width: 600px">
+	<div>
+		<form>
+			<label>상영관</label>
+			<select>
+				<option>CGV</option>
+				<option>메가박스</option>
+				<option>롯데시네마</option>
+			</select>
+			<label>날짜선택</label>
+			<input type="date" style="width: 200px" min = "2020-09-11">
+		</form>
+	</div>
+	<div>
+		<fieldset id="times" val="9000">
+			<legend>시간선택</legend>
+			<input name = "time" type="radio" val = "08:30" style="width: 10%" onclick="discount()"/>08:30
+			<input name = "time" type="radio" val = "11:00" style="width: 10%" onclick="selectTime()"/>11:00
+			<input name = "time" type="radio" val = "17:25" style="width: 10%" onclick="selectTime()"/>17:25
+			<input name = "time" type="radio" val = "20:10" style="width: 10%" onclick="selectTime()"/>20:10
+			<input name = "time" type="radio" val = "23:05" style="width: 10%" onclick="selectTime()"/>23:05
+		</fieldset>
+	</div>
+	<div>
+		<a>요금</a>
+		<a id="before">\9,000</a>
+		<a id="after" style="visibility: hidden">\5,000</a>
+	</div>
+	<div>
+		<label>인원</label>
+		<input id="count" type="number" value=1 min=1 max=120 onclick="calc()">
+	</div>
+	<div>
+		<label>금액</label>
+		<input id="total" value=9000 type="number" min=0>
+	</div>
+	<div>
+		<input id="checkbox" type="checkbox" onclick="showOption()" />추가
+	</div>
+	<div id="option" style="visibility: hidden">
+		<fieldset>
+			<legend>옵션</legend>
+			<input type="checkbox" />팝콘
+			<input type="checkbox" />콜라
+		</fieldset>
+	</div>
+</body>
+</html>
