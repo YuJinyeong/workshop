@@ -35,6 +35,8 @@
 			//alert(data);
 			var studentlist = '';
 			$.each(data, function(index, item){
+				console.log("index: " + index);
+				conseole.log("item: " + item);
 				studentlist = '<tr>';
 				studentlist += '<td>' + item.id + '</td>';
 				studentlist += '<td>' + item.name + '</td>';

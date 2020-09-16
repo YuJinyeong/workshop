@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>jQuery Slot Machine</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./dist/jquery.slotmachine.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./dist/slotmachine.js"></script>
+    <script src="./dist/jquery.slotmachine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="header-line"></div>
+
+    <!-- Intro -->
+    <header>
+      <p>Welcome to 고려웅 유진영 site...<br/>
+      <!-- <a href="https://github.com/josex2r/jQuery-SlotMachine">jQuery-SlotMachine</a> is not a simple animation plugin. --></p>
+    </header>
+    
+      <!-- Flight example -->
+    <div id="plane">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-md-5 offset-sm-1 offset-md-1">
+            <pre></pre>
+          </div>
+          <div class="col-sm-10 col-md-6 offset-sm-1 offset-md-0">
+            <div class="well content">
+              <p>앞날이 창창한</p>
+
+              <div id="planeMachine">
+                <div class="text-center">
+                  	홍승길 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	고려웅 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	기라성 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	김경연 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	김세민 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	김승화 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	김주효 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	김하늘 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	남우진 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	문진환 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	박은수 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	박준수 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	박지훈 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	빈준호 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	송승연 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	양선미 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	원혜린 <span class="badge"></span>
+                </div>
+				<div class="text-center">
+                  	유진영 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	윤건상 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	윤승환 <span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	 윤형준<span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	 전혜린<span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	 조한빈<span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	 한예림<span class="badge"></span>
+                </div>
+                <div class="text-center">
+                  	 황다희<span class="badge"></span>
+                </div>
+              </div>
+            </div>
+
+            <script id="codeScript1">
+const planeMachine = document.querySelector('#planeMachine');
+new SlotMachine(planeMachine, {
+  active: 1,
+  delay: 450,
+  auto: 1500,
+  randomize() {
+    return this.nextIndex;
+  }
+});
+
+// Using jQuery
+$('#planeMachine2').slotMachine({
+  active: 1,
+  delay: 450,
+  auto: 1500,
+  randomize() {
+    return this.nextIndex;
+  }
+});
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+     
+    <div id="randomize">
+      <div class="container">
+        <h1>인디언식 이름 짓기!</h1>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div>
+              <div id="machine1" class="randomizeMachine">
+                <div><img src="img/01.png" /></div>
+                <div><img src="img/02.png" /></div>
+                <div><img src="img/03.png" /></div>
+                <div><img src="img/04.png" /></div>
+                <div><img src="img/05.png" /></div>
+                <div><img src="img/06.png" /></div>
+                <div><img src="img/07.png" /></div>
+                <div><img src="img/08.png" /></div>
+                <div><img src="img/09.png" /></div>
+                <div><img src="img/10.png" /></div>
+              </div>
+            </div>
+            <div id="machine1Result" class="col-xs-4 machineResult">Index: 0</div>
+          </div>
+
+          <div class="col-sm-4">
+            <div>
+              <div id="machine2" class="randomizeMachine">
+                <div><img src="img/01.png" /></div>
+                <div><img src="img/02.png" /></div>
+                <div><img src="img/03.png" /></div>
+                <div><img src="img/04.png" /></div>
+                <div><img src="img/05.png" /></div>
+                <div><img src="img/06.png" /></div>
+                <div><img src="img/07.png" /></div>
+                <div><img src="img/08.png" /></div>
+                <div><img src="img/09.png" /></div>
+                <div><img src="img/10.png" /></div>
+              </div>
+            </div>
+            <div id="machine2Result" class="col-xs-4 machineResult">Index: 1</div>
+          </div>
+
+          <div class="col-sm-4">
+            <div>
+              <div id="machine3" class="randomizeMachine">
+                <div><img src="img/01.png" /></div>
+                <div><img src="img/02.png" /></div>
+                <div><img src="img/03.png" /></div>
+                <div><img src="img/04.png" /></div>
+                <div><img src="img/05.png" /></div>
+                <div><img src="img/06.png" /></div>
+                <div><img src="img/07.png" /></div>
+                <div><img src="img/08.png" /></div>
+                <div><img src="img/09.png" /></div>
+                <div><img src="img/10.png" /></div>
+              </div>
+            </div>
+            <div id="machine3Result" class="col-xs-4 machineResult">Index: 2</div>
+          </div>
+        
+          <div class="btn-group btn-group-justified" role="group">
+            <button id="randomizeButton" type="button" class="btn btn-danger btn-lg">Shuffle</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-10 offset-sm-1">
+            <pre>시 간 부 족</pre>
+            <p>첫번째 숫자</p>
+            <p>"1" : "시끄러운",
+"2" : "푸른",
+"3" : "적색",
+"4" : "조용한",
+"5" : "웅크린",
+"6" : "백색",
+"7" : "지혜로운",
+"8" : "용감한",
+"9" : "날카로운",
+"0" : "욕심많은",</p>
+            <p>두번째 숫자</p>
+            <p>"1" : "늑대",
+"2" : "태양",
+"3" : "양",
+"4" : "매",
+"5" : "황소",
+"6" : "불꽃",
+"7" : "나무",
+"8" : "달빛",
+"9" : "말",
+"0" : "돼지",</p>
+            <p>세번째 숫자</p>
+            <p>"1" : "의 행진",
+"2" : "의 왕",
+"3" : "의 유령",
+"4" : "을 죽인자.",
+"5" : "는(은) 맨날 잠잔다.",
+"6" : "처럼..",
+"7" : "의 고향",
+"8" : "의 전사",
+"9" : "은(는) 나의친구",
+"0": "의 노래",</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script id="codeScript2">
+    
+const btn = document.querySelector('#randomizeButton');
+const results = {
+  machine1: document.querySelector('#machine1Result'),
+  machine2: document.querySelector('#machine2Result'),
+  machine3: document.querySelector('#machine3Result')
+};
+const el1 = document.querySelector('#machine1');
+const el2 = document.querySelector('#machine2');
+const el3 = document.querySelector('#machine3');
+const machine1 = new SlotMachine(el1, { active: 0 });
+const machine2 = new SlotMachine(el2, { active: 1 });
+const machine3 = new SlotMachine(el3, { active: 2 });
+
+function onComplete(active){
+  results[this.element.id].innerText = `Index: ${this.active}`;
+}
+
+btn.addEventListener('click', () => {
+  machine1.shuffle(5, onComplete);
+  setTimeout(() => machine2.shuffle(5, onComplete), 500);
+  setTimeout(() => machine3.shuffle(5, onComplete), 1000);
+});
+    </script>
+
+ 
+    <!-- Slot machine example -->
+    <div id="casino" style="padding-top:50px;">
+      <div class="content">
+        <h1>Slot Machine</h1>
+
+        <div>
+          <div id="casino1" class="slotMachine" style="margin-left: -65px;">
+            <div class="slot slot1"></div>
+            <div class="slot slot2"></div>
+            <div class="slot slot3"></div>
+            <div class="slot slot4"></div>
+            <div class="slot slot5"></div>
+            <div class="slot slot6"></div>]
+          </div>
+
+          <div id="casino2" class="slotMachine">
+            <div class="slot slot1"></div>
+            <div class="slot slot2"></div>
+            <div class="slot slot3"></div>
+            <div class="slot slot4"></div>
+            <div class="slot slot5"></div>
+            <div class="slot slot6"></div>
+          </div>
+
+          <div id="casino3" class="slotMachine">
+            <div class="slot slot1"></div>
+            <div class="slot slot2"></div>
+            <div class="slot slot3"></div>
+            <div class="slot slot4"></div>
+            <div class="slot slot5"></div>
+            <div class="slot slot6"></div>
+          </div>
+
+          <div class="btn-group btn-group-justified" role="group">
+            <button id="casinoShuffle" type="button" class="btn btn-primary btn-lg">Shuffle!</button>
+            <button id="casinoStop" type="button" class="btn btn-primary btn-lg">Stop!</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <script id="codeScript5">
+let count = 0;
+const btnShuffle = document.querySelector('#casinoShuffle');
+const btnStop = document.querySelector('#casinoStop');
+const casino1 = document.querySelector('#casino1');
+const casino2 = document.querySelector('#casino2');
+const casino3 = document.querySelector('#casino3');
+const mCasino1 = new SlotMachine(casino1, {
+  active: 0,
+  delay: 500
+});
+const mCasino2 = new SlotMachine(casino2, {
+  active: 1,
+  delay: 500
+});
+const mCasino3 = new SlotMachine(casino3, {
+  active: 2,
+  delay: 500
+});
+    </script>
+    <script id="codeScript6">
+btnShuffle.addEventListener('click', () => {
+  count = 3;
+  mCasino1.shuffle(9999);
+  mCasino2.shuffle(9999);
+  mCasino3.shuffle(9999);
+});
+
+btnStop.addEventListener('click', () => {
+  switch(count) {
+    case 3:
+      mCasino1.stop();
+      break;
+    case 2:
+      mCasino2.stop();
+      break;
+    case 1:
+      mCasino3.stop();
+      break;
+  }
+  count--;
+});
+    </script>
+
+
+    <footer>
+      <div class="content">
+        <div id="textMachine" style="text-align: center">
+          <div>고려웅</div>
+          <div>유진영</div>
+          <div>SSAFY</div>
+          <div>광주 2반</div>
+        </div>
+        <script>
+$("#textMachine").slotMachine({
+  active: 1,
+  delay: 450,
+  auto: 1500,
+  randomize() {
+    return this.nextIndex;
+  }
+});
+        </script>
+      </div>
+    </footer>
+
+  <script>
+// Fill code blocks
+[1, 2, 3, 4, 5, 6].forEach((index) => {
+  const script = document.querySelector(`#codeScript${index}`);
+  const block = document.querySelector(`#codeBlock${index}`);
+
+  block.innerText = script.innerText.replace(/^\n|\n\s*$/g, '');
+});
+hljs.initHighlightingOnLoad();
+  </script>
+
+  </body>
+</html>
