@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>도서 등록 화면</title>
+<style type="text/css">
+div {
+	text-align: center;
+	width:1000px;
+	margin: 0px auto;
+}
+
+table {
+	text-align: left;
+}
+textarea {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+	<div>
+		<header>
+			<h2>
+				<strong>도서 등록 화면</strong>
+			</h2>
+		</header>
+		<form method="get" action="/ws_0918/MainServlet">
+			<table>
+				<tr>
+					<td colspan="2" style="text-align: right">* 표시가 된 항목은 필수 입력
+						항목입니다.</td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td>* 도서번호</td>
+					<td><input type="text" name="num1" required>- <input
+						type="text" name="num2" required>- <input type="text"
+						name="num3" required></td>
+				</tr>
+				<tr>
+					<td>* 도서제목</td>
+					<td><input type="text" name="title" required></td>
+				</tr>
+				<tr>
+					<td>* 도서종류</td>
+					<td><select name="type" required>
+							<option value="" selected>해당 항목을 선택하세요</option>
+							<option value="소설">소설</option>
+							<option value="시">시</option>
+							<option value="컴퓨터">컴퓨터</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>· 출판 국가</td>
+					<td><label><input type="radio" name="country"
+							value="domestic" checked>국내도서</label> <label><input type="radio"
+							name="country" value="foreign">국외도서</label></td>
+				</tr>
+				<tr>
+					<td>· 출판일</td>
+					<td><input type="text" name="date"></td>
+				</tr>
+				<tr>
+					<td>· 출판사</td>
+					<td><select name="publisher">
+							<option value="" selected>해당 항목을 선택하세요</option>
+							<option value="민음사">민음사</option>
+							<option value="바다출판사">바다출판사</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>* 저자</td>
+					<td><input type="text" name="author" required></td>
+				</tr>
+				<tr>
+					<td>· 도서가격</td>
+					<td><input type="text" name="cost"> <select><option>원</option>
+							<option>$</option></select></td>
+				</tr>
+				<tr>
+					<td>· 요약내용</td>
+					<td><textarea name="summary" rows="4"></textarea></td>
+				</tr>
+			</table>
+			<button type="submit">도서등록</button>
+			<button type="reset">취소</button>
+		</form>
+	</div>
+</body>
+</html>
