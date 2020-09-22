@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>SSAFY Cafe</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var cafeArea = {
+				"서울" : ["역삼점", "선릉점"],
+				"대전" : ["학하점", "봉명점"],
+				"구미" : ["연수원점", "구미사업장"],
+				"광주" : ["하남산단점", "광주역점"]
+		};
+		
+		var officePosition = {
+				"역삼점" : 	{ "lat" : 37.500613, "lng" : 127.036431},	
+				"선릉점" : 	{ "lat" : 37.504268, "lng" : 127.048188},	
+				"학하점" : 	{ "lat" : 36.355360, "lng" : 127.298294},	
+				"봉명점" : 	{ "lat" : 36.358843, "lng" : 127.344192},	
+				"연수원점" : 	{ "lat" : 36.098594, "lng" : 128.389770},	
+				"구미사업장" : 	{ "lat" : 36.109553, "lng" : 128.415011},	
+				"하남산단점" : 	{ "lat" : 35.204279, "lng" : 126.807198},	
+				"광주역점" : 	{ "lat" : 35.165476, "lng" : 126.909216}
+		};
+		
+		var officeAddress = {
+				"역삼점" : 	"서울특별시+강남구+역삼동+테헤란로+212",	
+				"선릉점" : 	"서울특별시 강남구 역삼동 테헤란로 334 LG 화재빌딩",	
+				"학하점" : 	"대전광역시 유성구 덕명동 124",	
+				"봉명점" : 	"대전광역시 유성구 봉명동 대학로 60 봉명가든 6층",	
+				"연수원점" : 	"경상북도 구미시 공단동 259",	
+				"구미사업장" : 	"경상북도 구미시 임수동 94",	
+				"하남산단점" : 	"107 하남산단6번로 광산구 광주광역시",	
+				"광주역점" : 	"광주광역시 북구 중흥동 611"
+		};
+		
+		$(".dropdown-item.cafe_area").click(function() {
+			var selArea = $(this).text();
+			$("#areaBtn").text(selArea);
+			var offices = cafeArea[selArea];
+			$("#office_div").empty();
+			$.each(offices, function(i, office) {
+				$("#office_div").append('<label class="dropdown-item cafe_office">' + office + '</label>');
+			});
+		});
+		
+		
+		/*
+		//officePosition의 lat, lng를 이용한 marker
+		$(document).on("click", ".dropdown-item.cafe_office", function() {
+			var selOffice = $(this).text();
+			$("#officeBtn").text(selOffice);
+			var office = officePosition[selOffice];
+			deleteMarkers();
+			var officemarker = {
+					coords: {lat: office.lat, lng: office.lng},
+					iconImage: null,
+					content: selOffice
+			};
+			addMarker(officemarker);
+		});
+		*/
+		
+		//officeAddress의 주소를 이용하여 geocoding으로 lat, lng 얻어온 후 marker
+		$(document).on("click", ".dropdown-item.cafe_office", function() {
+			var selOffice = $(this).text();
+			$("#officeBtn").text(selOffice);
+			var officeAddr = officeAddress[selOffice];
+			
+			$.get("https://maps.googleapis.com/maps/api/geocode/json"
+					, {	
+						key: 'AIzaSyC-tuHt-YWQB-mulbCy0-OqsX-FA-LAHOc', address: officeAddr 
+					} , function(data, status) {
+						deleteMarkers();
+						var officemarker = {
+								coords: { lat: data.results[0].geometry.location.lat, lng: data.results[0].geometry.location.lng },
+								iconImage: null,
+								content: selOffice
+						};
+						console.log(officemarker);
+						addMarker(officemarker);
+					}
+					, "json"
+			);//get
+		});
+		
+	});
+	</script>
+</head>
+<body>
+<!-- 상단 contents start -->
+<nav class="navbar navbar-expand-sm bg-light fixed-top shadow">
+	<div class="container">
+		<a class="navbar-brand">SSAFY Cafe</a>
+		<button class="navbar-toggler navbar-toggler-right bg-secondary text-white" type="button" data-toggle="collapse" data-target="#navb">
+	    	<span class="navbar-toggler-icon">-</span>
+		</button>
+		<div id="navb" class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link text-secondary" href="#">공지사항</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" size="40%" type="text" placeholder="Search">
+				<button class="btn btn-secondary my-2 my-sm-0" type="button">검색</button>
+			</form>
+			<ul id="header_nav_confirmoff" class="navbar-nav justify-content-end">
+				<li class="nav-item">
+					<a class="nav-link text-secondary" href="#">로그인</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-secondary" href="#">회원가입</a>
+				</li>
+			</ul>
+			<ul id="header_nav_confirmon" class="navbar-nav justify-content-end"> <!-- style="display: none;"> -->
+				<li class="nav-item">
+					<a class="nav-link text-secondary" href="#">로그아웃</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-secondary" href="#">마이페이지</a>
+				</li>
+				<li class="nav-item dropdown">
+				    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">관리자</a>
+				    <div class="dropdown-menu">
+					      <a class="dropdown-item" href="#voteModal" data-toggle="modal">투표만들기</a>
+					      <a class="dropdown-item" href="#">차트보기</a>
+					      <a class="dropdown-item" href="#">회원관리</a>
+				    </div>
+  				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- 상단 contents end -->
+
+<div class="container">
+	<div style="height: 60px;"></div>
+	<!-- 중앙 contents start -->
+	<div class="row">
+	
+		<!-- 중앙 left contents start -->
+		<div class="col-md-3">
+			<div class="profile m-2 text-center">
+				<img id="profile_img" class="rounded img-thumbnail" src="img/profile.png" alt="">
+			</div>
+			
+			<button class="btn btn-block btn-lg btn-primary mt-1" data-toggle="collapse" data-target="#seoul">서울</button>
+			<div id="seoul" class="collapse bg-secondary text-white mb-1 rounded-lg">
+				<div class="pl-4 pt-2 pb-2 mt-1">역삼점</div>
+				<div class="pl-4 pt-2 pb-2">선릉점</div>
+			</div>
+			<button class="btn btn-block btn-lg btn-primary mt-1" data-toggle="collapse" data-target="#daejeon">대전</button>
+			<div id="daejeon" class="collapse bg-secondary text-white mb-1 rounded-lg">
+				<div class="pl-4 pt-2 pb-2 mt-1">학하점</div>
+				<div class="pl-4 pt-2 pb-2">봉명점</div>
+			</div>
+			<button class="btn btn-block btn-lg btn-primary mt-1" data-toggle="collapse" data-target="#gumi">구미</button>
+			<div id="gumi" class="collapse bg-secondary text-white mb-1 rounded-lg">
+				<div class="pl-4 pt-2 pb-2 mt-1">인동점</div>
+				<div class="pl-4 pt-2 pb-2">공단점</div>
+			</div>
+			<button class="btn btn-block btn-lg btn-primary mt-1" data-toggle="collapse" data-target="#gwanju">광주</button>
+			<div id="gwanju" class="collapse bg-secondary text-white mb-1 rounded-lg">
+				<div class="pl-4 pt-2 pb-2 mt-1">하남산단점</div>
+				<div class="pl-4 pt-2 pb-2">광주역점</div>
+			</div>
+			
+			<div class="border border-secondary rounded-lg mt-2 p-3">
+				<div class="text-center text-secondary font-weight-bold">[ 당신의 선택 ]</div>
+				<div class="font-weight-bold">
+				최애 메뉴를 골라 주세요!!!
+				</div>
+				<div class="p-3">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<label><input type="radio" name="vote_answer" value="카페라떼"/>
+							<img src="img/coffee/ice/ice_cafelatte.jpg" class="rounded" style="width:35px" alt=""/> 카페라떼</label>
+						</li>
+						<li class="nav-item">
+							<label><input type="radio" name="vote_answer" value="카페모카"/>
+							<img src="img/coffee/ice/ice_cafemocha.jpg" class="rounded" style="width:35px" alt=""/> 카페모카</label>
+						</li>
+						<li class="nav-item">
+							<label><input type="radio" name="vote_answer" value="카라멜마끼야또"/>
+							<img src="img/coffee/ice/ice_caramelmacchiato.jpg" class="rounded" style="width:35px" alt=""/> 카라멜마끼야또</label>
+						</li>
+						<li class="nav-item">
+							<label><input type="radio" name="vote_answer" value="바닐라라떼"/>
+							<img src="img/coffee/ice/ice_vanillalatte.jpg" class="rounded" style="width:35px" alt=""/> 바닐라라떼</label>
+						</li>
+					</ul>
+				</div>
+				<div class="text-center">
+					<button id="voteBtn" class="btn btn-outline-primary btn-sm">투표하기</button>
+					<button class="btn btn-outline-danger btn-sm">결과보기</button>
+				</div>
+				<div class="text-right text-secondary mt-1">
+				투표기간 : 20.09.01 ~ 20.09.30
+				</div>
+			</div>
+			
+		</div>
+		<!-- 중앙 left contents end -->
+		
+		<!-- 중앙 center contents start -->
+		<div class="col-md-9">
+		
+			<div class="text-center">
+				<div class="dropdown">
+					<div class="btn-group">
+				    	<button type="button" id="areaBtn" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">지역선택</button>
+					    <div class="dropdown-menu">
+							<label class="dropdown-item cafe_area">서울</label>
+							<label class="dropdown-item cafe_area">대전</label>
+							<label class="dropdown-item cafe_area">구미</label>
+							<label class="dropdown-item cafe_area">광주</label>
+					    </div>
+				  	</div>
+				  	<div class="btn-group">
+				    	<button type="button" id="officeBtn" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">지점선택</button>
+					    <div id="office_div" class="dropdown-menu"></div>
+				  	</div>
+				</div>
+			</div>
+			<div id="map" style="width: 100%; height: 300px; margin: auto;"></div>
+			<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-tuHt-YWQB-mulbCy0-OqsX-FA-LAHOc&callback=initMap"></script>
+			<script>
+				var multi = {lat: 37.5012743, lng: 127.039585};
+				var map;
+				var markers = [];
+				var infoWindow;
+				
+				function initMap() {
+					map = new google.maps.Map(document.getElementById('map'), {
+						center: multi, zoom: 15
+					});
+					
+					infoWindow = new google.maps.InfoWindow;
+					
+					const myposition = "img/my_position.png";
+					
+					/*
+					//멀티캠퍼스
+					//const multimarker = new google.maps.Marker({coords: multi, content: '멀티캠퍼스', iconImage: myposition});
+					var multimarker = {
+							coords: multi,
+							iconImage: myposition,
+							content: '멀티캠퍼스(역삼)'
+					};
+					addMarker(multimarker);
+					infoWindow.setPosition(multi);
+					infoWindow.setContent('멀티캠퍼스.');
+					infoWindow.open(map);
+				}
+				*/
+					
+					// Geolocation
+					infoWindow = new google.maps.InfoWindow;
+					if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(function(position) {
+							var pos = {
+								lat: position.coords.latitude,
+								lng: position.coords.longitude
+							};
+							
+							var mymarker = {
+									coords: pos,
+									iconImage: myposition,
+									content: '현재위치'
+							};
+							addMarker(mymarker);
+							
+							infoWindow.setPosition(pos);
+							infoWindow.setContent('현재 나의 위치.');
+							infoWindow.open(map);
+							map.setCenter(pos);
+						}, function() {
+							handleLocationError(true, infoWindow, map.getCenter());
+						});
+					} else {
+						handleLocationError(false, infoWindow, map.getCenter());
+					}
+				}
+				
+				function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+					infoWindow.setPosition(pos);
+					infoWindow.setContent(browserHasGeolocation ?
+						'Error: Geolocation 서비스 실패.' :
+						'Error: Geolocation을 지원하지 않는 브라우저.');
+					infoWindow.open(map);
+				}
+				
+				function addMarker(props) {
+					const marker = new google.maps.Marker({
+						position: new google.maps.LatLng(parseFloat(props.coords.lat),parseFloat(props.coords.lng)),
+						map: map
+					});
+					map.setCenter(marker.getPosition());
+					map.setZoom(15);
+					
+					if(props.iconImage){
+						marker.setIcon(props.iconImage);
+					}
+
+					if(props.content){
+						infoWindow = new google.maps.InfoWindow({
+							content:props.content
+						});
+
+					}
+					
+					marker.addListener('click', function() {
+						map.setZoom(17);
+						map.setCenter(marker.getPosition());
+						bounceMarker(marker);
+					});
+					markers.push(marker);
+					setMapOnAll(map);
+				}
+				
+				function bounceMarker(marker) {
+					if (marker.getAnimation() !== null) {
+						marker.setAnimation(null);
+					} else {
+						marker.setAnimation(google.maps.Animation.BOUNCE);
+					}
+				}
+				
+				function deleteMarkers() {
+					clearMarkers();
+					markers = [];
+				}
+				
+				function clearMarkers() {
+					setMapOnAll(null);
+				}
+				
+				function setMapOnAll(map) {
+					for (let i = 0; i < markers.length; i++) {
+						markers[i].setMap(map);
+					}
+				}
+			</script>
+	
+			<div class="mt-2"><h5>[인기메뉴]</h5></div>
+			<div class="row mt-1">
+					<div class="col-md-3 border border-secondary rounded pt-2 pb-2">
+						<div class="mt-1">
+							<img src="img/coffee/ice/ice_americano.jpg" class="rounded w-100" alt=""/>
+						</div>
+						<div class="mt-1 p-1 text-center" style="background-color: #f2f2f2;"><h6>아이스 아메리카노<br/>(4500원)</h6></div>
+					</div>
+					<div class="col-md-3 border border-secondary rounded pt-2 pb-2">
+						<div class="mt-1">
+							<img src="img/coffee/ice/ice_capuccino.jpg" class="rounded w-100" alt=""/>
+						</div>
+						<div class="mt-1 p-1 text-center" style="background-color: #f2f2f2;"><h6>아이스 카푸치노<br/>(4500원)</h6></div>
+					</div>
+					<div class="col-md-3 border border-secondary rounded pt-2 pb-2">
+						<div class="mt-1">
+							<img src="img/coffee/ice/ice_vanillalatte.jpg" class="rounded w-100" alt=""/>
+						</div>
+						<div class="mt-1 p-1 text-center" style="background-color: #f2f2f2;"><h6>아이스 바닐라라떼<br/>(5500원)</h6></div>
+					</div>
+					<div class="col-md-3 border border-secondary rounded pt-2 pb-2">
+						<div class="mt-1">
+							<img src="img/coffee/ice/ice_whitechocolatemocha.jpg" class="rounded w-100" alt=""/>
+						</div>
+						<div class="mt-1 p-1 text-center" style="background-color: #f2f2f2;"><h6>아이스 화이트초코모카<br/>(6000원)</h6></div>
+					</div>
+			</div>
+			<div class="mt-3"><h5>[신메뉴]</h5></div>
+			<div class="row mt-1">
+					<div class="col-md-3 border border-secondary rounded pt-2 pb-2">
+						<div class="mt-1">
+							<img src="img/coffee/hot/cafelatte.jpg" class="rounded w-100" alt=""/>
+						</div>
+						<div class="mt-1 p-1 text-center" style="background-color: #f2f2f2;"><h6>카페라떼<br/>(4700원)</h6></div>
+					</div>
+					<div class="col-md-3 border border-secondary rounded pt-2 pb-2">
+						<div class="mt-1">
+							<img src="img/coffee/hot/esspresso.jpg" class="rounded w-100" alt=""/>
+						</div>
+						<div class="mt-1 p-1 text-center" style="background-color: #f2f2f2;"><h6>에스프레소<br/>(4500원)</h6></div>
+					</div>
+					<div class="col-md-3 border border-secondary rounded pt-2 pb-2">
+						<div class="mt-1">
+							<img src="img/coffee/hot/whitechocolatemocha.jpg" class="rounded w-100" alt=""/>
+						</div>
+						<div class="mt-1 p-1 text-center" style="background-color: #f2f2f2;"><h6>화이트초코모카<br/>(5500원)</h6></div>
+					</div>
+					<div class="col-md-3 border border-secondary rounded pt-2 pb-2">
+						<div class="mt-1">
+							<img src="img/coffee/hot/cafemocha.jpg" class="rounded w-100" alt=""/>
+						</div>
+						<div class="mt-1 p-1 text-center" style="background-color: #f2f2f2;"><h6>카페모카<br/>(4800원)</h6></div>
+					</div>
+			</div>
+			
+			<div class="row mt-3">
+				<div class="col-md-6">
+					<h5>[ 인기글 ]</h5>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th class="title">제목</th>
+								<th>작성자</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>깔끔한 아아가 제일 맛나요!!</td>
+								<td>이쎄림</td>
+								<td>1756</td>
+							</tr>
+							<tr>
+								<td>분위기 좋은 카페 추천~</td>
+								<td>홍정밍</td>
+								<td>998</td>
+							</tr>
+							<tr>
+								<td>공부하기 좋은 스터디카페 ^^</td>
+								<td>김나켠</td>
+								<td>856</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-6">
+				<h5>[ 최신글 ]</h5>
+					<table class="table table-hover">
+						<thead class="thead-dark">
+							<tr>
+								<th class="title">제목</th>
+								<th>작성자</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>메뉴추천해주세요 ^^~</td>
+								<td>이주녕</td>
+								<td>12</td>
+							</tr>
+							<tr>
+								<td>오늘부터 열공</td>
+								<td>조밍기</td>
+								<td>998</td>
+							</tr>
+							<tr>
+								<td>와플도 팔았으면 좋겠어요.</td>
+								<td>류해면</td>
+								<td>856</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- 중앙 center contents end -->
+		
+	</div>
+	<!-- 중앙 contents end -->
+	
+	<!-- 하단 contents start -->
+	<footer class="navbar navbar-expand-md justify-content-end">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="navbar-nav">
+					<li><a class="nav-link text-secondary" href="#">카페소개</a></li>
+					<li><a class="nav-link text-secondary" href="#">개인정보처리방침</a></li>
+					<li><a class="nav-link text-secondary" href="#">이용약관</a></li>
+					<li><a class="nav-link text-secondary" href="#">오시는길</a></li>
+					<li><label class="nav-link text-secondary">&copy; SSAFY Corp.</label></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- 하단 contents end -->
+</div>
+<!-- 투표만들기 modal start -->
+<div id="voteModal" class="modal fade">
+	<div class="modal-dialog modal-dialog-centered">
+    	<div class="modal-content">
+    		<div class="modal-header">
+        		<h4 class="modal-title">투표 만들기</h4>
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+      		</div>
+      		<div class="modal-body">
+			<form action="">
+				<div class="form-group">
+					<label>질문 내용</label>
+					<input type="text" id="question" name="question" class="form-control" placeholder="질문내용...">
+				</div>
+				<div class="form-group">
+					<label>답변 항목</label>
+					<button type="button" id="addAnswerBtn" class="btn btn-outline-danger btn-sm">추가</button>
+				</div>
+				<div id="form-group">
+					<div class="poll_answer_item">
+						<input type="text" name="answer" class="form-control">
+					</div>
+				</div>
+				<div class="form-group mt-2 text-right">
+					<button type="button" id="pollMakeBtn" class="btn btn-primary">투표 생성</button>
+				</div>
+			</form>
+			</div>
+			<div class="modal-footer">
+        		<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      		</div>
+		</div>
+	</div>
+</div>
+<!-- 투표만들기 modal start -->
+</body>
+</html>
+
