@@ -18,7 +18,7 @@ public class MultiParameter extends HttpServlet {
 		String userName = request.getParameter("username");
 		String fruits[] = request.getParameterValues("fruit");
 		
-		response.setContentType("text/html); charset=UTF_8");
+		response.setContentType("text/html; charset=UTF_8");
 		PrintWriter out = response.getWriter();
 		out.print("<html>");
 		out.print("<body>");
