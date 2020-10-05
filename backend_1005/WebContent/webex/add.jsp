@@ -10,7 +10,7 @@
 	님 반갑습니다.
 	<a href="<%=request.getContextPath()%>/main?action=logout">로그아웃</a>
 	<!-- web page에서 /의 의미: container root : localhost:8080, 호출 되려면 project 즉 context root가 필요 -->
-	<form method="get" action="/backend_k02/main">
+	<form method="get" action="/backend_1005/main">
 		<input type="hidden" name="action" value="add">
 		<input type="text" name="num1">
 		<input type="number" name="num2">
