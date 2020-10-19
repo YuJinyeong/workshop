@@ -15,8 +15,8 @@ public class 최소공최대공 {
 			big = m;
 			small = n;
 		}
-		answer[0] = gcd(big, small);
-		answer[1] = big * small / answer[0];
+		answer[0] = gcd(big, small); //최대공약수
+		answer[1] = big * small / answer[0]; //최소공배수
 
 		return answer;
 	}
