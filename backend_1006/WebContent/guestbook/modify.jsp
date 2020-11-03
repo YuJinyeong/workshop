@@ -3,13 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <%
-String root = request.getContextPath();
+	String root = request.getContextPath();
 
 MemberDto memberDto = (MemberDto) session.getAttribute("userinfo");
 if(memberDto == null)
 	response.sendRedirect(root + "/main.do");
 else {
-	GuestBookDto guestBookDto = (GuestBookDto) request.getAttribute("article");
+	ProductDto guestBookDto = (ProductDto) request.getAttribute("article");
 %>
 <!DOCTYPE html>
 <html lang="ko">

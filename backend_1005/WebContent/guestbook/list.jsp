@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.ssafy.model.*"%>
 <%
-String root = request.getContextPath();
+	String root = request.getContextPath();
 
 MemberDto memberDto = (MemberDto) session.getAttribute("userinfo");
 if(memberDto == null)
 	response.sendRedirect(root + "/main.do");
 else {
-	List<GuestBookDto> list = (List<GuestBookDto>)request.getAttribute("articles");
+	List<ProductDto> list = (List<ProductDto>)request.getAttribute("articles");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -21,13 +21,13 @@ else {
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 		function movewrite() {
-			location.href="<%= root %>/main.do?act=mvwrite";
+			location.href="<%=root%>/main.do?act=mvwrite";
 		}
 		function searchArticle() {
 			if(document.getElementById("word").value == "") {
 				alert("모든 목록 조회!!");
 			}
-			document.getElementById("searchform").action = "<%= root %>/main.do";
+			document.getElementById("searchform").action = "<%=root%>/main.do";
 			document.getElementById("searchform").submit();
 		}
 		</script>
@@ -35,8 +35,8 @@ else {
 	<body>	
 	<div class="container" align="center">
 		<div class="col-lg-8" align="right">
-		<strong><%= memberDto.getUsername() %></strong>님 환영합니다.
-		<a href="<%= root %>/main.do?act=logout">로그아웃</a>
+		<strong><%=memberDto.getUsername()%></strong>님 환영합니다.
+		<a href="<%=root%>/main.do?act=logout">로그아웃</a>
 		</div>
 	  <div class="col-lg-8" align="center">
 	  <h2>글목록</h2>
@@ -63,8 +63,8 @@ else {
 	  </table>
 	  </form>
 	  <%
-	  if(list.size() != 0) {
-	  	for(GuestBookDto guestBookDto : list) {
+	  	if(list.size() != 0) {
+	  	  	for(ProductDto guestBookDto : list) {
 	  %>
 	  <table class="table table-active">
 	    <tbody>

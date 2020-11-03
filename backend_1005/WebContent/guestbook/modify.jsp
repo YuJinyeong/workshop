@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.ssafy.model.*"%>
 <%
-String root = request.getContextPath();
+	String root = request.getContextPath();
 
 MemberDto memberDto = (MemberDto) session.getAttribute("userinfo");
 if(memberDto == null)
 	response.sendRedirect(root + "/main.do");
 else {
-	GuestBookDto guestBookDto = (GuestBookDto) request.getAttribute("article");
+	ProductDto guestBookDto = (ProductDto) request.getAttribute("article");
 %>
 <!DOCTYPE html>
 <html lang="ko">

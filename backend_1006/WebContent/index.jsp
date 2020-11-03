@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.ssafy.model.MemberDto"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="root" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
@@ -13,21 +12,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </head>
-<body>
-<div align="center">
-<h3>SSAFY 방명록!!!(JSP)</h3>
-<c:if test="${userinfo eq null}">
-<h3>${msg}</h3>
-<%@ include file="/user/login.jsp" %>
-</c:if>
-<c:if test="${userinfo ne null}">
-<div>
-<strong>${userinfo.username}</strong>님 환영합니다.
-<a href="${root}/main.do?act=logout">로그아웃</a>
-</div>
-<a href="${root}/main.do?act=mvwrite">글쓰기</a><br>
-<a href="${root}/main.do?act=list&key=&word=">글목록</a>
-</c:if>
-</div>
-</body>
+	<body>
+		<div align="center">
+			<h3>SSAFY 방명록!!!(JSP)</h3>
+			<c:if test="${userinfo eq null}">
+				<h3>${msg}</h3>
+				<%@ include file="/user/login.jsp" %>
+			</c:if>
+			<c:if test="${userinfo ne null}">
+				<div>
+				<strong>${userinfo.username}</strong>님 환영합니다.
+				<a href="${root}/main.do?act=logout">로그아웃</a>
+				</div>
+				<a href="${root}/main.do?act=mvwrite">글쓰기</a><br>
+				<a href="${root}/main.do?act=list&key=&word=">글목록</a>
+			</c:if>
+		</div>
+	</body>
 </html>
