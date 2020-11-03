@@ -1,0 +1,6 @@
+1. 프로젝트를 생성한다.
+2. pom.xml 수정 --> 버전 확인
+3. Update project 해서 버전 맞추기
+4. Xml 기반 설정 --> JavaConfig로 변경 xml 두개수정 및 JavaConfig  파일 2개 추가
+5. web.xml에 CharacterEncoding 추가
+6. DTO --> Repo --> Service  --> jsp --> Controller
