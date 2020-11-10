@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h2>엘리먼트 참조하기</h2>
+      <!-- 아이디 : <input type="text" v-model="id"> -->
+      아이디 : <input type="text" v-model="id" ref="id" />
+      <button @click="search">아이디 중복 체크</button>
+    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          id: '',
+        },
+        methods: {
+          search() {
+            if (this.id.length == 0) {
+              alert('아이디를 입력하세요!!');
+              this.$refs.id.focus();
+              console.dir(this.$refs.id);
+              return;
+            }
+            console.log(this.$refs.id.value);
+            alert('아이디 중복체크 성공');
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
