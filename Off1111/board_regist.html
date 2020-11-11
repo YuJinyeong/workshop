@@ -46,7 +46,11 @@
     </div>
 
     <script>
-      const boards = JSON.parse(localStorage.getItem('boards'));
+      let boards = JSON.parse(localStorage.getItem('boards'));
+      if (boards == null) {
+        boards = [];
+        localStorage.setItem('boards', JSON.stringify(boards));
+      }
       function getTime() {
         let today = new Date();
         return today.toLocaleDateString();
