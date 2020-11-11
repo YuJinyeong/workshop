@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="main">
+      <h3>Vue를 이용한 게시판</h3>
+      <table border="1" bordercolor="lightgray">
+        <tr>
+          <td>번호</td>
+          <td>{{board.no}}</td>
+        </tr>
+        <tr>
+          <td>글쓴이</td>
+          <td>{{board.writer}}</td>
+        </tr>
+        <tr>
+          <td>제목</td>
+          <td>{{board.title}}</td>
+        </tr>
+        <tr>
+          <td>날짜</td>
+          <td>{{board.regtime}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">{{board.content}}</td>
+        </tr>
+      </table>
+      <button class="btn btn-primary" onclick="location.href='list.html'">
+        목록
+      </button>
+      <button class="btn btn-danger" v-on:click="deleteText(board.no)">
+        삭제
+      </button>
+    </div>
+    <script>
+      // https://developer.mozilla.org/en-US/docs/Web/API/URL/URL
+      const params = new URL(document.location).searchParams;
+      const no = params.get('no');
+      const boards = JSON.parse(localStorage.getItem('boards'));
+
+      let vue = new Vue({
+        el: '#main',
+        data: {
+          no: no,
+          board: '',
+        },
+        methods: {
+          findBoard: function () {
+            for (i = 0; i < boards.length; ++i) {
+              if (boards[i].no == no) {
+                this.board = boards[i];
+                return;
+              }
+            }
+          },
+          deleteText: function (no) {
+            for (i = 0; i < boards.length; ++i) {
+              if (boards[i].no == no) {
+                boards.splice(i, 1);
+                break;
+              }
+            }
+            localStorage.setItem('boards', JSON.stringify(boards));
+            alert('삭제되었습니다.');
+            location.href = 'list.html';
+          },
+        },
+      });
+
+      vue.findBoard();
+    </script>
+  </body>
+</html>
