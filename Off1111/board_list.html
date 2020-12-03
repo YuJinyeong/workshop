@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WS</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="main">
+      <h3>Vue를 이용한 게시판</h3>
+      <table border="1" bordercolor="lightgray">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>날짜</th>
+        <tr v-for="board in boards">
+          <td>{{board.no}}</td>
+          <td><a :href="'read.html?no='+board.no">{{board.title}}</a></td>
+          <td>{{board.writer}}</td>
+          <td>{{board.regtime}}</td>
+        </tr>
+      </table>
+      <button class="btn btn-primary" onclick="location.href='regist.html'">
+        등록
+      </button>
+    </div>
+    <script>
+      //   const boards = [
+      //     {
+      //       no: 3,
+      //       title: '프론트엔드 프레임워크',
+      //       content: 'Vue는 프론트엔드의 인기있는 프레임워크 입니다.',
+      //       writer: 'ssafy',
+      //       regtime: '2020-10-30',
+      //     },
+      //     {
+      //       no: 2,
+      //       title: 'Vue를 배워봅시다',
+      //       content: 'Vue와 Spring을 연동하자~',
+      //       writer: 'ssafy',
+      //       regtime: '2020-09-19',
+      //     },
+      //     {
+      //       no: 1,
+      //       title: 'Vue Axios 연동',
+      //       content: 'Vue를 이용한 HTTP 통신',
+      //       writer: 'ssafy',
+      //       regtime: '2020-10-26',
+      //     },
+      //   ];
+
+      //   localStorage.setItem('boards', JSON.stringify(boards));
+      const boards = JSON.parse(localStorage.getItem('boards'));
+      let vue = new Vue({
+        el: '#main',
+        data: {
+          boards: boards,
+          delete: false,
+        },
+      });
+    </script>
+  </body>
+</html>

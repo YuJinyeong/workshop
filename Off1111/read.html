@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <script>
+    // https://developer.mozilla.org/en-US/docs/Web/API/URL/URL
+    const params = (new URL(document.location)).searchParams;
+    const no = params.get('no');
+    console.dir(new URL(document.location));
+    console.dir(params.get('no'));
+
+    const boards = [{
+        "no": 3,
+        "title": "프론트엔드 프레임워크",
+        "content": "Vue는 프론트엔드의 인기있는 프레임워크 입니다.",
+        "writer": "ssafy",
+        "regtime": "2020-10-30"
+      },
+      {
+        "no": 2,
+        "title": "Vue를 배워봅시다",
+        "content": "Vue와 Spring을 연동하자~",
+        "writer": "ssafy",
+        "regtime": "2020-09-19"
+      },
+      {
+        "no": 1,
+        "title": "Vue Axios 연동",
+        "content": "Vue를 이용한 HTTP 통신",
+        "writer": "ssafy",
+        "regtime": "2020-10-26"
+      }
+    ];
+
+  </script>
+
+</body>
+
+</html>

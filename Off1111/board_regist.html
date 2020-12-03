@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <title>WS</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <h3>Vue를 이용한 게시판</h3>
+      <table border="1" bordercolor="lightgray">
+        <tr>
+          <td>번호</td>
+          <td><input type="number" name="no" v-model="no" /></td>
+        </tr>
+        <tr>
+          <td>글쓴이</td>
+          <td><input type="text" name="writer" v-model="writer" /></td>
+        </tr>
+        <tr>
+          <td>제목</td>
+          <td><input type="text" name="title" v-model="title" /></td>
+        </tr>
+        <tr>
+          <td>내용</td>
+          <td>
+            <textarea
+              name="content"
+              cols="30"
+              rows="10"
+              v-model="content"
+            ></textarea>
+          </td>
+        </tr>
+      </table>
+      <button v-on:click="regist()" class="btn btn-primary">등록</button>
+      <button onclick="location.href='list.html'" class="btn btn-primary">
+        목록
+      </button>
+    </div>
+
+    <script>
+      let boards = JSON.parse(localStorage.getItem('boards'));
+      if (boards == null) {
+        boards = [];
+        localStorage.setItem('boards', JSON.stringify(boards));
+      }
+      function getTime() {
+        let today = new Date();
+        return today.toLocaleDateString();
+      }
+      let vue = new Vue({
+        el: '#main',
+        data: {
+          no: '',
+          writer: '',
+          title: '',
+          content: '',
+          board: boards,
+        },
+        methods: {
+          regist: function () {
+            boards.push({
+              no: this.no,
+              title: this.title,
+              content: this.content,
+              writer: this.writer,
+              regtime: getTime(),
+            });
+            localStorage.setItem('boards', JSON.stringify(boards));
+            this.no = '';
+            this.title = '';
+            this.content = '';
+            this.writer = '';
+            alert('등록되었습니다.');
+            location.href = 'list.html';
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
