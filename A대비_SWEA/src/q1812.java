@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-//1812. 수정이의 타일 자르기 
+//1812. 수정이의 타일 자르기  
 public class q1812 {
 	static class Rectangle implements Comparable<Rectangle>{
 		int max, min;
