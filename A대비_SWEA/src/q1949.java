@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//1949. [모의 SW 역량테스트] 등산로 조성
+//1949. [모의 SW 역량테스트] 등산로 조성 
 public class q1949 {
 	static int N, K, map[][], ans;
 	static boolean flag, check[][];
