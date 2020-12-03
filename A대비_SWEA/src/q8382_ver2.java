@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
+//8382. 방향 전환
 public class q8382_ver2 {
 	static int x1, y1, x2, y2;
 	static final int HOR=0, VER=1;	// 000001	1^1

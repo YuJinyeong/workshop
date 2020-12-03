@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-//8382. 방향 전환
+//8382. 방향 전환 
 public class q8382 {
 	static int[][][] dirs = {{{1, 0}, {-1, 0}}, {{0, 1}, {0, -1}}};
 	public static void main(String[] args) throws NumberFormatException, IOException {
